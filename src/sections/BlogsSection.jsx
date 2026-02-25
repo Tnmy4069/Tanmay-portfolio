@@ -47,7 +47,7 @@ export default function BlogsSection({ blogs }) {
                                         letterSpacing: '0.2em',
                                         marginBottom: '12px'
                                     }}>
-                                        {new Date(blog.createdAt).toLocaleDateString()}
+                                        {new Date(blog.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })}
                                     </div>
                                     <h3 style={{
                                         fontFamily: 'var(--font-display)',

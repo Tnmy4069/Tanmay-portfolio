@@ -1,3 +1,4 @@
+
 import { getBlogBySlug } from '../../hot-admin/dashboard/blogActions';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
@@ -44,7 +45,7 @@ export default async function BlogPage({ params }) {
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.8rem'
                 }}>
-                    <span>DATE: {new Date(blog.createdAt).toLocaleDateString()}</span>
+                    <span>DATE: {new Date(blog.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })}</span>
                     <span>SLUG: /{blog.slug}</span>
                 </div>
             </div>

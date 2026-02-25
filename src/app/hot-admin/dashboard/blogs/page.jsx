@@ -46,7 +46,7 @@ export default async function BlogsPage() {
                                     </td>
                                     <td style={tdStyle}>
                                         <span style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-                                            {new Date(blog.createdAt).toLocaleDateString()}
+                                            {new Date(blog.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })}
                                         </span>
                                     </td>
                                     <td style={tdStyle}>
