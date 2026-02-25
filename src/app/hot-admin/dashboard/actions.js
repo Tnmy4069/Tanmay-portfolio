@@ -26,7 +26,8 @@ export async function getAbout() {
         phone: '+91 83800 66588',
         github: '',
         linkedin: '',
-        portfolio: ''
+        portfolio: '',
+        theme: 'cyan'
     };
 }
 
@@ -40,8 +41,9 @@ export async function updateAbout(formData) {
     const github = formData.get('github');
     const linkedin = formData.get('linkedin');
     const portfolio = formData.get('portfolio');
+    const theme = formData.get('theme');
 
-    const data = { name, tagline, subtitle, bio, email, phone, github, linkedin, portfolio };
+    const data = { name, tagline, subtitle, bio, email, phone, github, linkedin, portfolio, theme };
 
     const existing = await prisma.about.findFirst();
     if (existing) {

@@ -21,6 +21,7 @@ model About {
   github    String   @default("https://github.com/Tnmy4069")
   linkedin  String   @default("https://linkedin.com/in/hirodkar")
   portfolio String   @default("https://tnmyh.vercel.app")
+  theme     String   @default("cyan")
   updatedAt DateTime @updatedAt
 }
 

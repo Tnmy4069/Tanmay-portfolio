@@ -22,6 +22,48 @@
   --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* ─── Themes ─── */
+[data-theme='matrix'] {
+  --neon-cyan: #00ff41;
+  --neon-purple: #008f11;
+  --neon-emerald: #003b00;
+  --glow-cyan: 0 0 30px rgba(0, 255, 65, 0.3);
+  --glow-purple: 0 0 30px rgba(0, 143, 17, 0.3);
+}
+
+[data-theme='synthwave'] {
+  --neon-cyan: #ff00ff;
+  --neon-purple: #7000ff;
+  --neon-emerald: #00ffff;
+  --glow-cyan: 0 0 30px rgba(255, 0, 255, 0.3);
+  --glow-purple: 0 0 30px rgba(112, 0, 255, 0.3);
+}
+
+[data-theme='amber'] {
+  --neon-cyan: #ffb100;
+  --neon-purple: #ff7b00;
+  --neon-emerald: #ff0000;
+  --glow-cyan: 0 0 30px rgba(255, 177, 0, 0.3);
+  --glow-purple: 0 0 30px rgba(255, 123, 0, 0.3);
+}
+
+[data-theme='ruby'] {
+  --neon-cyan: #ff003c;
+  --neon-purple: #9b0000;
+  --neon-emerald: #ff00ff;
+  --glow-cyan: 0 0 30px rgba(255, 0, 60, 0.3);
+  --glow-purple: 0 0 30px rgba(155, 0, 0, 0.3);
+}
+
+[data-theme='emerald'] {
+  --neon-cyan: #00ff88;
+  --neon-purple: #0088ff;
+  --neon-emerald: #ffff00;
+  --glow-cyan: 0 0 30px rgba(0, 255, 136, 0.3);
+  --glow-purple: 0 0 30px rgba(0, 136, 255, 0.3);
+}
+
+
 /* ─── Reset & Base ─── */
 *,
 *::before,

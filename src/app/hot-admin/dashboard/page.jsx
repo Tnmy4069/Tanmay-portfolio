@@ -35,6 +35,17 @@ export default async function DashboardPage() {
                             <label>GitHub UI: <input name="github" defaultValue={about.github} style={inputStyle} required /></label>
                             <label>LinkedIn UI: <input name="linkedin" defaultValue={about.linkedin} style={inputStyle} required /></label>
                             <label>Portfolio URL: <input name="portfolio" defaultValue={about.portfolio} style={inputStyle} required /></label>
+                            <label style={{ gridColumn: 'span 2' }}>
+                                Global Theme:
+                                <select name="theme" defaultValue={about.theme || 'cyan'} style={{ ...inputStyle, marginTop: '5px' }}>
+                                    <option value="cyan">Default (Cyan)</option>
+                                    <option value="matrix">Matrix (Green)</option>
+                                    <option value="synthwave">Synthwave (Magenta)</option>
+                                    <option value="amber">Amber (Gold)</option>
+                                    <option value="ruby">Ruby (Red)</option>
+                                    <option value="emerald">Emerald (Electric)</option>
+                                </select>
+                            </label>
                         </div>
                         <button type="submit" style={btnStyle}>Save About</button>
                     </form>
