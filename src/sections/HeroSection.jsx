@@ -28,7 +28,7 @@ export default function HeroSection({ about }) {
     return (
         <section className="hero" id="hero" ref={heroRef}>
             <DotGrid
-                dotSize={12}
+                dotSize={8}
                 gap={33}
                 baseColor="#271E37"
                 activeColor="#5227FF"
