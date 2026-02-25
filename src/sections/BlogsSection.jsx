@@ -22,7 +22,7 @@ export default function BlogsSection({ blogs }) {
                             viewport={{ once: true, margin: '-50px' }}
                             transition={{ delay: 0.1 * i, duration: 0.6 }}
                         >
-                            <Link href={`/b/${blog.slug}`} className="glass-card" style={{
+                            <a href={`/b/${blog.slug}`} className="glass-card" style={{
                                 display: 'block',
                                 height: '100%',
                                 textDecoration: 'none',
@@ -73,7 +73,7 @@ export default function BlogsSection({ blogs }) {
                                         READ_FULL_SEQUENCE →
                                     </div>
                                 </div>
-                            </Link>
+                            </a>
                         </motion.div>
                     ))}
                 </div>
