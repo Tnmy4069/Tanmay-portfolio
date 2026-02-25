@@ -6,7 +6,10 @@ import SplitText from '../components/SplitText';
 
 export default function HeroSection({ about }) {
     const displayTagline = about?.tagline || 'Project Management • AI & Digital Systems';
-    const name = about?.name || 'TANMAY HIRODKAR';
+    const fullName = about?.name || 'TANMAY HIRODKAR';
+    const nameParts = fullName.split(' ');
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
     const subtitle = about?.subtitle || 'Building scalable systems, leading technology programs, and crafting digital experiences that bridge AI, cloud, and human-centered design.';
     const githubLink = about?.github || 'https://github.com/Tnmy4069';
     const linkedinLink = about?.linkedin || 'https://linkedin.com/in/hirodkar';
@@ -67,11 +70,19 @@ export default function HeroSection({ about }) {
                 </motion.p>
 
                 <h1 className="hero-name">
-                    <SplitText
-                        text={name}
-                        delay={0.4}
-                        staggerDelay={0.04}
-                    />
+                    <span className="hero-name-wrapper">
+                        <SplitText
+                            text={firstName}
+                            delay={0.4}
+                            staggerDelay={0.04}
+                        />
+                        <span className="hero-name-space">&nbsp;</span>
+                        <SplitText
+                            text={lastName}
+                            delay={0.4 + firstName.length * 0.04}
+                            staggerDelay={0.04}
+                        />
+                    </span>
                 </h1>
 
                 <motion.p

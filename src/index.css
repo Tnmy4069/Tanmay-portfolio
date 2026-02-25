@@ -418,6 +418,17 @@ body::after {
   z-index: 2;
 }
 
+.hero-name-wrapper {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-name-space {
+  display: inline;
+}
+
 @keyframes gradientShift {
 
   0%,
@@ -1229,6 +1240,17 @@ body::after {
 
   .hero-name {
     font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-name-wrapper {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-name-space {
+    display: none;
   }
 }
 
