@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ReadingProgressBar from '../../components/ReadingProgressBar';
 
 export default function BlogLayout({ children }) {
     return (
@@ -40,6 +41,8 @@ export default function BlogLayout({ children }) {
                         _RETURN_TO_ROOT
                     </Link>
                 </div>
+                {/* Glowing Progress Bar */}
+                <ReadingProgressBar />
             </header>
 
             <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 24px' }}>

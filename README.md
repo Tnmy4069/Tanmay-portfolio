@@ -1,63 +1,78 @@
-# Interactive 3D Portfolio & Real-time Content Dashboard
+# Interactive 3D Portfolio & Content Management System
 
-A highly interactive, glassmorphic portfolio powered by **Next.js 15**, **React Three Fiber (WebGL)**, and **Framer Motion**. But it's not just a static site—it features a custom, completely headless CMS (built with **MongoDB** and **Prisma**) allowing you to manage your own content in real-time.
+A highly interactive, glassmorphic portfolio powered by **Next.js 15**, **React Three Fiber (WebGL)**, and **Framer Motion**. This is a complete, full-stack application featuring a custom headless CMS for managing profiles, projects, and a fully-featured **Markdown Blog System**.
 
-Any edits you make in the Admin Dashboard instantly hydrate across all connected browsers using Next.js advanced Server Component reloading without requiring a hard refresh!
+Any edits you make in the Admin Dashboard instantly hydrate across all connected browsers using Next.js advanced Server Component reloading—no manual refresh required.
 
-## Features
-- 🌌 **3D Space Scene:** A beautiful, GPU-accelerated massive points-cloud scene driven by React Three Fiber.
-- ⚡ **Real-Time Data Streaming:** A Next.js API polling infrastructure dynamically triggers internal server re-renders when backend data changes.
-- 🔐 **Hot-Admin Panel:** Access the comprehensive dashboard under `/hot-admin` to seamlessly manage Hero info, Experience, Education, Capabilities, and Project nodes.
-- 📊 **Magnetic UI Elements:** Cursor-following interactive DOM boundaries.
-- 💎 **No Third-Party CMS:** Everything functions natively via MongoDB and Server Actions, keeping bundle sizes optimized and API requests internalized.
+---
+
+## 🔥 Key Features
+
+### 🌌 3D & Interactive UI
+- **Immersive Space Scene:** A GPU-accelerated massive points-cloud background driven by React Three Fiber.
+- **Magnetic UI Elements:** Smooth, cursor-following interactions for buttons and cards.
+- **Glassmorphic Design:** A modern, high-tech aesthetic with neon accents (Cyan, Purple, Emerald).
+
+### 📝 Comprehensive Blog System
+- **Markdown Native:** Write blogs using full Markdown/GFM support (tables, lists, code blocks).
+- **Featured Images:** Support for rectangular featured images that highlight your work on the home page and within articles.
+- **Dynamic Routing:** Blogs are served via high-performance dynamic routes at `/b/[slug]`.
+- **Public Journal:** A curated "Journal" section on the homepage displaying your latest insights in a bento-grid layout.
+
+### 🔐 Root Admin Dashboard
+- **Headless CMS:** Manage your entire profile—Hero section, Experiences, Skills, Projects, and Achievements—from a secure `/hot-admin` terminal.
+- **Unified Navigation:** Re-architected admin layout featuring a persistent sidebar and navbar for seamless context switching.
+- **Real-Time Updates:** Backend data managed via Prisma & MongoDB with instant server-side revalidation.
 
 ---
 
 ## 🚀 Getting Started
 
 ### 1. Installation
-Clone the repository and install requirements:
+Clone the repository and install dependencies:
 ```bash
 npm install
 ```
 
 ### 2. Environment Variables
-To keep your secrets safe, **never** commit `.env` to a public repository! 
-We've provided a `.env.example` file. Duplicate it and rename it to `.env`:
+Provided is a `.env.example` file. Duplicate it and rename to `.env`:
 ```bash
 cp .env.example .env
 ```
 
-Open `.env` and configure your credentials:
+Configure your credentials:
 - `DATABASE_URL`: Your MongoDB cluster connection string.
-- `ADMIN_PASSWORD`: A secure password of your choice to access the `/hot-admin` section.
+- `ADMIN_PASSWORD`: A secure password to access the `/hot-admin` control center.
+- `NODE_ENV`: Set to `development` or `production`.
 
 ### 3. Initialize the Database
-Generate the Prisma Client and sync the schema to your MongoDB instance:
+Sync the Prisma schema to your MongoDB instance:
 ```bash
 npx prisma generate
 npx prisma db push
 ```
 
-### 4. Boot the Development Server
+### 4. Boot the System
 ```bash
 npm run dev
 ```
-Navigate to `http://localhost:3000` to see your portfolio, and `http://localhost:3000/hot-admin` to manage your data!
-
-> *Note: If this is an entirely fresh database, you can seed it by hitting the `/api/seed` route with a POST request containing your ADMIN_PASSWORD to instantly populate the site with standard demo content.*
+Navigate to `http://localhost:3000` to see your site, and `http://localhost:3000/hot-admin` to take control.
 
 ---
 
 ## 🛠 Tech Stack
-- **Framework:** Next.js 15 App Router
-- **Database:** MongoDB
-- **ORM:** Prisma
-- **Styling:** Vanilla CSS & HTML5
-- **Animations:** Framer Motion
-- **3D Render:** Three.js / React Three Fiber
 
-## 🛡 Security & Publishing Notes
-Before deploying to Vercel, Netlify, or any other hosting provider, remember to:
-1. Under your Project Settings in Vercel, add your `DATABASE_URL` and `ADMIN_PASSWORD` strictly as Environment Variables.
-2. Ensure you never commit your local `.env` file to GitHub (it should automatically be ignored via `.gitignore`).
+- **Core:** Next.js 15 (App Router), React 19
+- **Database Layer:** MongoDB & Prisma (ORM)
+- **Content Rendering:** `react-markdown`, `remark-gfm`, `rehype-raw`
+- **Styling:** Vanilla CSS3 (Custom Design System)
+- **3D & Animation:** Three.js, React Three Fiber, Framer Motion
+
+## 🛡 Security & Deployment
+- **Secure Sessions:** Admin authentication is managed via encrypted `httpOnly` cookies.
+- **Deployment:** Optimized for Vercel. Ensure `DATABASE_URL` and `ADMIN_PASSWORD` are set in your project environment variables.
+- **Production Safety:** All admin routes are protected and verify session validity before allowing data mutations.
+
+---
+
+Designed & Built with 🤖 by **Tanmay Hirodkar**
