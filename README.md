@@ -71,7 +71,7 @@ Navigate to `http://localhost:3000` to see your site, and `http://localhost:3000
 ## 🛡 Security & Deployment
 - **Secure Sessions:** Admin authentication is managed via encrypted `httpOnly` cookies.
 - **Deployment:** Optimized for Vercel. Ensure `DATABASE_URL` and `ADMIN_PASSWORD` are set in your project environment variables.
-- **Production Safety:** All admin routes are protected and verify session validity before allowing data mutations.
+- **Production Safety:** All admin routes are protected and verify session validity before allowing data mutations...
 
 ---
 
