@@ -1,43 +1,69 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { logoutAction } from '../actions';
 
 export default function AdminDashboardLayout({ children }) {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const pathname = usePathname();
+
+    const navItems = [
+        { href: '/hot-admin/dashboard', label: 'System Profile' },
+        { href: '/hot-admin/dashboard/blogs', label: 'Blog Manager' },
+    ];
+
     return (
-        <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--bg-primary)', color: 'var(--text-primary)', fontFamily: 'var(--font-sans)' }}>
+        <div className="admin-layout">
+            {/* Mobile Overlay */}
+            {sidebarOpen && (
+                <div
+                    className="admin-sidebar-overlay"
+                    onClick={() => setSidebarOpen(false)}
+                />
+            )}
 
             {/* Sidebar */}
-            <aside style={{ width: '250px', background: 'var(--bg-surface)', borderRight: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ padding: '20px', borderBottom: '1px solid var(--border)' }}>
-                    <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--neon-cyan)', margin: 0, fontSize: '1.2rem' }}>
-                        _HOT ADMIN
-                    </h2>
+            <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
+                <div className="admin-sidebar-header">
+                    <h2 className="admin-sidebar-title">_HOT ADMIN</h2>
+                    <button
+                        className="admin-sidebar-close"
+                        onClick={() => setSidebarOpen(false)}
+                    >
+                        ✕
+                    </button>
                 </div>
-                <nav style={{ flex: 1, padding: '20px 0' }}>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                        <li>
-                            <Link href="/hot-admin/dashboard" style={navLinkStyle}>
-                                System Profile
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/hot-admin/dashboard/blogs" style={navLinkStyle}>
-                                Blog Manager
-                            </Link>
-                        </li>
-                    </ul>
+                <nav className="admin-sidebar-nav">
+                    {navItems.map(item => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className={`admin-nav-link ${pathname === item.href ? 'active' : ''}`}
+                            onClick={() => setSidebarOpen(false)}
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
                 </nav>
             </aside>
 
-            {/* Main Content Area */}
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-
-                {/* Navbar */}
-                <header style={{ height: '70px', background: 'var(--bg-surface)', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                        Root Terminal_ DASHBOARD
+            {/* Main Content */}
+            <div className="admin-main">
+                {/* Top Bar */}
+                <header className="admin-topbar">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <button
+                            className="admin-hamburger"
+                            onClick={() => setSidebarOpen(true)}
+                        >
+                            <span /><span /><span />
+                        </button>
+                        <span className="admin-topbar-label">Root Terminal_ DASHBOARD</span>
                     </div>
                     <form action={logoutAction}>
-                        <button type="submit" style={{ padding: '8px 16px', background: 'transparent', border: '1px solid #ef4444', color: '#ef4444', borderRadius: '4px', cursor: 'pointer', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '1px' }}>
+                        <button type="submit" className="admin-logout-btn">
                             TERMINATE SESSION
                         </button>
                     </form>
@@ -51,16 +77,3 @@ export default function AdminDashboardLayout({ children }) {
         </div>
     );
 }
-
-const navLinkStyle = {
-    display: 'block',
-    padding: '10px 20px',
-    color: 'var(--text-secondary)',
-    textDecoration: 'none',
-    fontFamily: 'var(--font-mono)',
-    fontSize: '0.9rem',
-    borderLeft: '4px solid transparent',
-    transition: 'all 0.2s ease',
-};
-
-// Add global styles for active or hover effects internally or dynamically

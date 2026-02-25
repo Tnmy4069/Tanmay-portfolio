@@ -31,7 +31,7 @@ export default function HeroSection({ about }) {
                 dotSize={8}
                 gap={33}
                 baseColor="#271E37"
-                activeColor="#5227FF"
+                activeColor="#7500fbff"
                 proximity={170}
                 shockRadius={50}
                 shockStrength={1}

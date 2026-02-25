@@ -13,7 +13,7 @@ export default function Accordion({ title, defaultOpen = false, children }) {
                 onClick={() => setIsOpen(!isOpen)}
                 style={{
                     width: '100%',
-                    padding: '24px 30px',
+                    padding: '20px 20px',
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
@@ -45,7 +45,7 @@ export default function Accordion({ title, defaultOpen = false, children }) {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                     >
-                        <div style={{ padding: '30px', borderTop: '1px solid var(--border)' }}>
+                        <div style={{ padding: '20px', borderTop: '1px solid var(--border)' }}>
                             {children}
                         </div>
                     </motion.div>
