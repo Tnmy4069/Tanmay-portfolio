@@ -1,6 +1,7 @@
 import Scene3D from '../components/Scene3D';
 import MagneticCursor from '../components/MagneticCursor';
 import RealtimeRefresh from '../components/RealtimeRefresh';
+import GradientDivider from '../components/GradientDivider';
 import HeroSection from '../sections/HeroSection';
 import AboutSection from '../sections/AboutSection';
 import ProjectsSection from '../sections/ProjectsSection';
@@ -40,12 +41,19 @@ export default async function Page() {
             <div className="content-wrapper">
                 <RealtimeRefresh initialVersion={aboutData.updatedAt?.toISOString() || null} />
                 <HeroSection about={aboutData} />
+                <GradientDivider />
                 <AboutSection about={aboutData} skills={skillsData} education={educationData} />
+                <GradientDivider color1="var(--neon-purple)" color2="var(--neon-emerald)" />
                 <ProjectsSection projects={projectData} />
+                <GradientDivider />
                 <ExperienceSection experiences={experienceData} />
+                <GradientDivider color1="var(--neon-emerald)" color2="var(--neon-cyan)" />
                 <ImpactSection achievements={achievementData} />
+                <GradientDivider color1="var(--neon-purple)" color2="var(--neon-cyan)" />
                 <BlogsSection blogs={blogData} />
+                <GradientDivider />
                 <LeadershipSection leadership={leadershipData} />
+                <GradientDivider color1="var(--neon-cyan)" color2="var(--neon-purple)" />
                 <ContactSection about={aboutData} />
             </div>
         </>

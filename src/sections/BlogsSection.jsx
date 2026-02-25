@@ -9,20 +9,31 @@ export default function BlogsSection({ blogs }) {
     return (
         <section className="section" id="blogs">
             <div className="section-inner">
-                <p className="section-label">Journal</p>
-                <h2 className="section-title">Deep Dives & Insights</h2>
+                <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                >
+                    <p className="section-label">Journal</p>
+                    <h2 className="section-title">Deep Dives & Insights</h2>
+                </motion.div>
 
                 <div className="bento-grid">
                     {blogs.map((blog, i) => (
                         <motion.div
                             key={blog.id}
                             className={`bento-item ${i === 0 ? 'span-2' : ''}`}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: '-50px' }}
-                            transition={{ delay: 0.1 * i, duration: 0.6 }}
+                            initial={{ opacity: 0, y: 50, scale: 0.92 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            viewport={{ once: true, margin: '-40px' }}
+                            transition={{
+                                delay: 0.1 * i,
+                                duration: 0.7,
+                                ease: [0.22, 1, 0.36, 1],
+                            }}
                         >
-                            <a href={`/b/${blog.slug}`} className="glass-card" style={{
+                            <a href={`/b/${blog.slug}`} className="glass-card blog-card-enhanced" style={{
                                 display: 'block',
                                 height: '100%',
                                 textDecoration: 'none',
@@ -30,13 +41,14 @@ export default function BlogsSection({ blogs }) {
                                 overflow: 'hidden'
                             }}>
                                 {blog.imageUrl && (
-                                    <div style={{ width: '100%', height: i === 0 ? '300px' : '200px', overflow: 'hidden' }}>
+                                    <div className="blog-card-img-wrapper" style={{ height: i === 0 ? '300px' : '200px' }}>
                                         <img
                                             src={blog.imageUrl}
                                             alt={blog.title}
-                                            style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
                                             className="blog-card-image"
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                         />
+                                        <div className="blog-card-overlay" />
                                     </div>
                                 )}
                                 <div style={{ padding: '24px' }}>
@@ -69,7 +81,7 @@ export default function BlogsSection({ blogs }) {
                                     }}>
                                         {blog.content.replace(/[#*`]/g, '').slice(0, 200)}...
                                     </p>
-                                    <div style={{ marginTop: '20px', color: 'var(--neon-cyan)', fontSize: '0.8rem', fontFamily: 'var(--font-mono)' }}>
+                                    <div className="blog-read-link">
                                         READ_FULL_SEQUENCE →
                                     </div>
                                 </div>
