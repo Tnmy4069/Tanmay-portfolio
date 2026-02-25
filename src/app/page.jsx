@@ -5,7 +5,9 @@ import HeroSection from '../sections/HeroSection';
 import AboutSection from '../sections/AboutSection';
 import ProjectsSection from '../sections/ProjectsSection';
 import ExperienceSection from '../sections/ExperienceSection';
-import AchievementsSection from '../sections/AchievementsSection';
+import ImpactSection from '../sections/ImpactSection';
+import BlogsSection from '../sections/BlogsSection';
+import LeadershipSection from '../sections/LeadershipSection';
 import ContactSection from '../sections/ContactSection';
 import { prisma } from '../lib/prisma';
 
@@ -24,6 +26,11 @@ export default async function Page() {
     const projectData = await prisma.project.findMany({ orderBy: { id: 'desc' } });
     const achievementData = await prisma.achievement.findMany({ orderBy: { id: 'desc' } });
     const leadershipData = await prisma.leadership.findMany({ orderBy: { id: 'desc' } });
+    const blogData = await prisma.blog.findMany({
+        where: { published: true },
+        orderBy: { createdAt: 'desc' },
+        take: 3
+    });
 
     return (
         <>
@@ -36,7 +43,9 @@ export default async function Page() {
                 <AboutSection about={aboutData} skills={skillsData} education={educationData} />
                 <ProjectsSection projects={projectData} />
                 <ExperienceSection experiences={experienceData} />
-                <AchievementsSection achievements={achievementData} leadership={leadershipData} />
+                <ImpactSection achievements={achievementData} />
+                <BlogsSection blogs={blogData} />
+                <LeadershipSection leadership={leadershipData} />
                 <ContactSection about={aboutData} />
             </div>
         </>

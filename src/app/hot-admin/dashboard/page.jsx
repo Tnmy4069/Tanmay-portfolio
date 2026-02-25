@@ -15,14 +15,7 @@ export default async function DashboardPage() {
     const leadership = await getLeadership();
 
     return (
-        <div style={{ padding: '40px', background: 'var(--bg-primary)', minHeight: '100vh', color: 'var(--text-primary)', fontFamily: 'var(--font-sans)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
-                <h1 style={{ fontFamily: 'var(--font-display)', color: 'var(--neon-cyan)', margin: 0 }}>Root Terminal _DASHBOARD</h1>
-                <form action={logoutAction}>
-                    <button type="submit" style={{ padding: '8px 16px', background: '#ef4444', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>LOGOUT</button>
-                </form>
-            </div>
-
+        <div style={{ padding: '40px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
 
                 {/* ABOUT SECTION */}

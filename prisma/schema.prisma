@@ -71,3 +71,14 @@ model Leadership {
   period    String
   points    String   // Newline separated
 }
+
+model Blog {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  slug      String   @unique
+  content   String
+  imageUrl  String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

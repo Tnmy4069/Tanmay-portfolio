@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { loginAction } from './actions';
-import { motion } from 'framer-motion';
 
 export default function AdminLogin() {
     const [password, setPassword] = useState('');
@@ -34,9 +33,7 @@ export default function AdminLogin() {
             justifyContent: 'center',
             background: 'var(--bg-primary)'
         }}>
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+            <div
                 style={{
                     padding: '40px',
                     background: 'var(--bg-surface)',
@@ -90,7 +87,7 @@ export default function AdminLogin() {
                         {loading ? 'AUTHENTICATING...' : 'INITIALIZE SEQUENCE'}
                     </button>
                 </form>
-            </motion.div>
+            </div>
         </div>
     );
 }
