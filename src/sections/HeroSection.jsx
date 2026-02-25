@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import SplitText from '../components/SplitText';
+import DotGrid from '../components/DotGrid';
 
 export default function HeroSection({ about }) {
     const displayTagline = about?.tagline || 'Project Management • AI & Digital Systems';
@@ -26,6 +27,17 @@ export default function HeroSection({ about }) {
 
     return (
         <section className="hero" id="hero" ref={heroRef}>
+            <DotGrid
+                dotSize={12}
+                gap={33}
+                baseColor="#271E37"
+                activeColor="#5227FF"
+                proximity={170}
+                shockRadius={50}
+                shockStrength={1}
+                resistance={300}
+                returnDuration={0.1}
+            />
             <motion.div
                 style={{ opacity, scale, y }}
                 className="hero-inner"

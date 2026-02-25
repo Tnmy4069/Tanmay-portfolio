@@ -340,6 +340,17 @@ body::after {
   overflow: hidden;
 }
 
+.hero::before {
+  display: none;
+}
+
+.dot-grid-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: auto;
+}
+
 .hero-inner {
   position: relative;
   z-index: 2;
